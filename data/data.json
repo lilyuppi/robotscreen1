@@ -1,0 +1,52 @@
+[
+    {
+        "title":"Kỉ niệm thành lập trường 1",
+        "detail":"/data/0/detail.txt",
+	"thumbnail":"/data/0/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 2",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 3",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 4",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 5",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 6",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 7",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 8",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 9",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    },
+    {
+        "title":"Kỉ niệm thành lập trường 10",
+        "detail":"/data/1/detail.txt",
+	"thumbnail":"/data/1/img/1.jpg"
+    }
+]

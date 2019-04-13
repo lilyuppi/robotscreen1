@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Header.qml</file>
+        <file>img/Header.png</file>
+        <file>ListItemHome.qml</file>
+        <file>DetailItem.qml</file>
+        <file>GetTimeAndDate.qml</file>
+        <file>data/data.json</file>
+        <file>main.cpp</file>
+        <file>qrc_qml.cpp</file>
+        <file>ItemModel.qml</file>
+        <file>data/img/1/1.jpg</file>
+        <file>getdatajson.cpp</file>
+        <file>getdatajson.h</file>
+        <file>ItemPathImageDetail.qml</file>
+    </qresource>
+    <qresource prefix="/files"/>
+</RCC>
