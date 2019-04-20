@@ -62,7 +62,7 @@ public slots:
     void setNumImgDetail(int numImgDetail);
 
 private:
-    QString m_dirApp = "/home/lil/Documents/code/qt/RobotDisplay";
+    QString m_dirApp = QDir::currentPath();
     QString m_dirFileJson = m_dirApp + "/data/data.json";
     QJsonDocument m_recieveJson;
     int m_numItem;

@@ -8,12 +8,23 @@
         <file>GetTimeAndDate.qml</file>
         <file>data/data.json</file>
         <file>main.cpp</file>
-        <file>qrc_qml.cpp</file>
         <file>ItemModel.qml</file>
-        <file>data/img/1/1.jpg</file>
         <file>getdatajson.cpp</file>
         <file>getdatajson.h</file>
         <file>ItemPathImageDetail.qml</file>
+        <file>fonts/Lora-Bold.ttf</file>
+        <file>fonts/Lora-BoldItalic.ttf</file>
+        <file>fonts/Lora-Italic.ttf</file>
+        <file>fonts/Lora-Regular.ttf</file>
+        <file>fonts/Merriweather-Black.ttf</file>
+        <file>fonts/Merriweather-BlackItalic.ttf</file>
+        <file>fonts/Merriweather-Bold.ttf</file>
+        <file>fonts/Merriweather-BoldItalic.ttf</file>
+        <file>fonts/Merriweather-Italic.ttf</file>
+        <file>fonts/Merriweather-Light.ttf</file>
+        <file>fonts/Merriweather-LightItalic.ttf</file>
+        <file>fonts/Merriweather-Regular.ttf</file>
+        <file>fonts/OFL.txt</file>
     </qresource>
     <qresource prefix="/files"/>
 </RCC>

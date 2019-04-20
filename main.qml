@@ -81,13 +81,15 @@ Window {
                 width: parent.width
                 height: 70
                 color: "transparent"
-                Text{
+                Text{                    
                     horizontalAlignment: Text.AlignHCenter
                     anchors.top: parent.top
                     anchors.topMargin: 5
                     width: parent.width
                     wrapMode: Text.WordWrap
-                    font.family: "San Francisco"
+                    FontLoader { id: myCustomFont; source: "qrc:/fonts/Lora-Regular.ttf" }
+                    font.family: myCustomFont.name
+                    font.pixelSize: 20
                     text: titleFromJson
                 }
             }

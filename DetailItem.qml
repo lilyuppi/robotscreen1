@@ -126,7 +126,9 @@ Rectangle{
             wrapMode: Text.WordWrap
             font.pixelSize: 50
             font.weight: Font.Black
-            font.family: "San Francisco"
+//            font.family: "San Francisco"
+            FontLoader { id: myCustomFont; source: "qrc:/fonts/Lora-Bold.ttf" }
+            font.family: myCustomFont.name
             //            color: "white"
             text: {
                 if(DataJson.indexItem != -1)
@@ -285,15 +287,6 @@ Rectangle{
         height: sizeDisplay.height
         color: "#ffffff"
         radius: 3
-        //        LinearGradient{
-        //            anchors.fill: parent
-        //            start: Qt.point(0, 0)
-        //            end: Qt.point(parent.width, parent.height)
-        //            gradient: Gradient{
-        //                GradientStop{position: 0.0; color: detailItem.color}
-        //                GradientStop{position: 1.0; color: "#ECEFF1"}
-        //            }
-        //        }
 
         Text {
             id: textDetail
@@ -303,8 +296,10 @@ Rectangle{
             anchors.topMargin: 10
             width: parent.width - 20
             wrapMode: Text.WordWrap
-            font.pixelSize: 14
-            font.family: textTitle.font.family
+            font.weight: Font.Normal
+            font.pixelSize: 14      
+            FontLoader { id: myCustomFontDetail; source: "qrc:/fonts/Merriweather-Regular.ttf" }
+            font.family: myCustomFontDetail.name
             text: DataJson.textDetail
         }
         layer.enabled: true

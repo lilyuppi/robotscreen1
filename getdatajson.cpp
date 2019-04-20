@@ -22,6 +22,7 @@ QJsonDocument DataJson::openFileJson(QString dirFile){
 
 void DataJson::readJson()
 {
+    qDebug() << QDir::currentPath();
     //    QList<QVariant> list = recieveJson.toVariant().toList();
     //    QMap<QString, QVariant> map = list[0].toMap();
     //    qDebug() << map["tittle"].toString();
