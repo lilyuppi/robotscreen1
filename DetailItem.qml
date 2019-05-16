@@ -4,7 +4,6 @@ import QtQuick.Controls 1.0
 
 Rectangle{
     property size sizeDisplay: Qt.size(1920, 1040)
-
     id: detailItem
     y: header.height
     width: sizeDisplay.width
@@ -300,8 +299,10 @@ Rectangle{
             font.pixelSize: 14      
             FontLoader { id: myCustomFontDetail; source: "qrc:/fonts/Merriweather-Regular.ttf" }
             font.family: myCustomFontDetail.name
-            text: DataJson.textDetail
+            text: "<b></b> " + DataJson.textDetail
         }
+
+
         layer.enabled: true
         layer.effect: DropShadow {
             horizontalOffset: -0.3
