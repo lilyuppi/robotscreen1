@@ -1,8 +1,9 @@
-import QtQuick 2.9
+import QtQuick 2.0
 import QtQuick.Window 2.2
 import QtGraphicalEffects 1.0
 //import Qt.labs.controls.material 1.0
 Window {
+    id: window
     property size sizeDisplay: Qt.size(1920, 1080)
     visibility: "FullScreen"
     visible: true
@@ -29,24 +30,25 @@ Window {
     GridView{
         id: listItem
 
-        anchors.topMargin: 120
-        anchors.leftMargin: 64
+        anchors.topMargin: window.height / 8.66
+        anchors.leftMargin: window.width / 30
         anchors.fill: parent
-        cellWidth: 464
-        cellHeight: 480
-
+        // cellWidth: 464 = 1920 / 4,137931034
+        cellWidth: parent.width / 4.137931034
+//        cellHeight: 480
+        cellHeight: (parent.height - header.height)  / 2.25
         flow: GridView.FlowTopToBottom
         model: ItemModel{}
         snapMode: ListView.SnapOneItem
-        delegate: Rectangle{
-            width: 400
-            height: 400
+        delegate: Rectangle{            
+            width: window.width / 4.8
+            height: width
             radius: 20
             color: "white"
             Image {
                 id: imgThumbnail
                 width: parent.width
-                height: parent.height - 50
+                height: parent.height - parent.width / 8
                 asynchronous: true
                 source: srcThumFromJson
 
@@ -69,7 +71,7 @@ Window {
             Rectangle{
                 id: rectOverrideImg
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 50
+                anchors.bottomMargin: parent.width / 8
                 width: parent.width
                 height: 20
                 color: parent.color
@@ -79,7 +81,7 @@ Window {
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 width: parent.width
-                height: 70
+                height: parent.height / 5.7
                 color: "transparent"
                 Text{                    
                     horizontalAlignment: Text.AlignHCenter
@@ -89,7 +91,7 @@ Window {
                     wrapMode: Text.WordWrap
                     FontLoader { id: myCustomFont; source: "qrc:/fonts/Lora-Regular.ttf" }
                     font.family: myCustomFont.name
-                    font.pixelSize: 20
+                    font.pixelSize: parent.height / 3
                     text: titleFromJson
                 }
             }
@@ -129,6 +131,7 @@ Window {
 
     DetailItem{
         id: detailItem
+        sizeDisplay: Qt.size(window.width, window.height - header.height)
         x: sizeDisplay.width
         visible: {
             detailItem.x < sizeDisplay.width ? true : false
@@ -137,6 +140,7 @@ Window {
     }
 
     Header{
-
+        id: header
+        sizeHeader: Qt.size(window.width, 40)
     }
 }

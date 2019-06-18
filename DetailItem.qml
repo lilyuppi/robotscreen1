@@ -1,4 +1,4 @@
-import QtQuick 2.9
+import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Controls 1.0
 
@@ -17,6 +17,7 @@ Rectangle{
                         srcImgDetailFromJson: DataJson.listImgDetail[i]
                                   });
         }
+
     }
 
     MouseArea{
@@ -117,13 +118,13 @@ Rectangle{
         Text{
             id: textTitle
             anchors.left: parent.left
-            anchors.leftMargin: 40
+            anchors.leftMargin: detailItem.width / 48
             anchors.top: parent.top
-            anchors.topMargin: 50
+            anchors.topMargin: detailItem.height / 20.8
             //            anchors.verticalCenter: parent.verticalCenter
             width: parent.width
             wrapMode: Text.WordWrap
-            font.pixelSize: 50
+            font.pixelSize: detailItem.height / 21
             font.weight: Font.Black
 //            font.family: "San Francisco"
             FontLoader { id: myCustomFont; source: "qrc:/fonts/Lora-Bold.ttf" }
@@ -138,81 +139,27 @@ Rectangle{
         }
 
 
-        Rectangle{
+        RosButton{
             id: rectPresentation
             anchors.left: rectTextTitle.left
-            anchors.leftMargin: 50
+            anchors.leftMargin: detailItem.width / 45
             anchors.bottom: rectTextTitle.bottom
-            anchors.bottomMargin: 20
-            width: height * 3.5
-            height: 70
-            radius: height/2
-            color: "#03A9F4"
+            anchors.bottomMargin: detailItem.height / 54
+            height: detailItem.height / 15
+            img_src: "present"
+            textIn: "Thuyết trình"
 
-            Image {
-                id: imgPresentation
-                width: parent.height - 10
-                height: width
-                anchors.left: parent.left
-                anchors.leftMargin: 10
-                anchors.verticalCenter: parent.verticalCenter
-                source: "file:/" + DataJson.dirApp() + "/img/play.png"
-            }
-            Text {
-                id: textPresentation
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: imgPresentation.right
-                anchors.leftMargin: 10
-                font.pixelSize: 24
-                font.weight: Font.Black
-                color: "white"
-                text: "Thuyết Trình"
-            }
-            layer.enabled: true
-            layer.effect: DropShadow{
-                verticalOffset: 1
-                horizontalOffset: 1
-                samples: 50
-                radius: 10
-                color: "#7f8c8d"
-            }
         }
-        Rectangle{
+        RosButton{
             id: rectGuide
             anchors.left: rectPresentation.right
             anchors.leftMargin: 50
             anchors.verticalCenter: rectPresentation.verticalCenter
             width: rectPresentation.width
             height: rectPresentation.height
-            radius: height/2
+            img_src: "guide"
             color: "#009688"
-            Image {
-                id: imgGuide
-                width: parent.height - 10
-                height: width
-                anchors.left: parent.left
-                anchors.leftMargin: 10
-                anchors.verticalCenter: parent.verticalCenter
-                source: "file:/" + DataJson.dirApp() + "/img/guide.png"
-            }
-            Text {
-                id: textGuide
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: imgGuide.right
-                anchors.leftMargin: 10
-                font.pixelSize: 24
-                font.weight: Font.Black
-                color: "white"
-                text: "Dẫn đường"
-            }
-            layer.enabled: true
-            layer.effect: DropShadow{
-                verticalOffset: 1
-                horizontalOffset: 1
-                samples: 50
-                radius: 10
-                color: "#7f8c8d"
-            }
+            textIn: "Chỉ đường"
         }
 
         layer.enabled: true
@@ -231,8 +178,8 @@ Rectangle{
         anchors.left: detailItem.left
         anchors.top: rectTextTitle.bottom
         anchors.topMargin: 20
-        width: 1400
-        height: sizeDisplay.height / (1920 / 1400)
+        width: detailItem.width / 1.371428571
+        height: sizeDisplay.height / (detailItem.width / width)
         color: detailItem.color
 
         Rectangle {
@@ -271,6 +218,16 @@ Rectangle{
                         fillMode: Image.PreserveAspectFit
                         source: srcImgDetailFromJson
                     }
+                }
+            }
+            Timer{
+                id: timerAutoNextImage
+                interval: 5000
+                repeat: true
+                running: true
+                triggeredOnStart: true
+                onTriggered: {
+                    view.incrementCurrentIndex()
                 }
             }
         }

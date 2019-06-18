@@ -25,4 +25,19 @@ Rectangle{
     GetTimeAndDate{
         id: getTimeAndDate
     }
+    QuickMenu{
+        id: quickMenu
+        width: 100
+        height: 100
+        anchors.right: parent.right
+        anchors.top: parent.top
+        visible: false
+    }
+
+    MouseArea{
+        anchors.fill: parent
+        onClicked: {
+            quickMenu.visible = !quickMenu.visible
+        }
+    }
 }

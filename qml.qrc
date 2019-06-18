@@ -25,6 +25,9 @@
         <file>fonts/Merriweather-LightItalic.ttf</file>
         <file>fonts/Merriweather-Regular.ttf</file>
         <file>fonts/OFL.txt</file>
+        <file>RosButton.qml</file>
+        <file>RectContainImg.qml</file>
+        <file>QuickMenu.qml</file>
     </qresource>
     <qresource prefix="/files"/>
 </RCC>
