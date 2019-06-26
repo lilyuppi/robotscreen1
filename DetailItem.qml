@@ -12,12 +12,21 @@ Rectangle{
     //    opacity: (sizeDisplay.width - x )/ sizeDisplay.width
     function updateData(){
         listImgPath.clear()
+        timerAutoNextImage.restart()
+        header.showBtnBack()
         for(var i = 0; i < DataJson.numImgDetail; i++){
             listImgPath.append({
-                        srcImgDetailFromJson: DataJson.listImgDetail[i]
-                                  });
+                                   srcImgDetailFromJson: DataJson.listImgDetail[i]
+                               });
         }
 
+    }
+
+    function backHome(){
+        detailItemHide.start()
+        detailItem.enabled = false
+        listImgPath.clear()
+        header.hideBtnBack()
     }
 
     MouseArea{
@@ -45,9 +54,7 @@ Rectangle{
             onReleased: {
                 timerGetMousePrevious.stop()
                 if(dragArea.mouseXPrevious < detailItem.x){
-                    detailItemHide.start()
-                    detailItem.enabled = false
-                    listImgPath.clear()
+                    backHome()
                 }else{
                     detailItemShow.start()
                 }
@@ -126,7 +133,7 @@ Rectangle{
             wrapMode: Text.WordWrap
             font.pixelSize: detailItem.height / 21
             font.weight: Font.Black
-//            font.family: "San Francisco"
+            //            font.family: "San Francisco"
             FontLoader { id: myCustomFont; source: "qrc:/fonts/Lora-Bold.ttf" }
             font.family: myCustomFont.name
             //            color: "white"
@@ -177,10 +184,10 @@ Rectangle{
         id: rectContainImg
         anchors.left: detailItem.left
         anchors.top: rectTextTitle.bottom
-        anchors.topMargin: 20
+        //        anchors.topMargin: 10
         width: detailItem.width / 1.371428571
         height: sizeDisplay.height / (detailItem.width / width)
-        color: detailItem.color
+        color: rectTextDetail.color
 
         Rectangle {
             id: rectContainPath
@@ -196,7 +203,7 @@ Rectangle{
                 }
 
                 pathItemCount: DataJson.numImgDetail
-//                pathItemCount: 2
+                //                pathItemCount: 2
                 path: Path {
                     startX: -rectContainPath.width / 2
                     startY: view.height / 2
@@ -219,13 +226,16 @@ Rectangle{
                         source: srcImgDetailFromJson
                     }
                 }
+                onCurrentIndexChanged: {
+                    //                    console.log("DetailItem: current index image in detail change")
+                    timerAutoNextImage.restart()
+                }
             }
             Timer{
                 id: timerAutoNextImage
                 interval: 5000
                 repeat: true
-                running: true
-                triggeredOnStart: true
+                running: false
                 onTriggered: {
                     view.incrementCurrentIndex()
                 }
@@ -238,11 +248,11 @@ Rectangle{
         id: rectTextDetail
         anchors.left: rectContainImg.right
         anchors.top: rectTextTitle.bottom
-        anchors.topMargin: 5
+        //        anchors.topMargin: 5
         width: sizeDisplay.width - rectContainImg.width
         height: sizeDisplay.height
         color: "#ffffff"
-        radius: 3
+        radius: 0
 
         Text {
             id: textDetail
@@ -253,27 +263,20 @@ Rectangle{
             width: parent.width - 20
             wrapMode: Text.WordWrap
             font.weight: Font.Normal
-            font.pixelSize: 14      
+            font.pixelSize: 14
             FontLoader { id: myCustomFontDetail; source: "qrc:/fonts/Merriweather-Regular.ttf" }
             font.family: myCustomFontDetail.name
             text: "<b></b> " + DataJson.textDetail
         }
 
 
-        layer.enabled: true
-        layer.effect: DropShadow {
-            horizontalOffset: -0.3
-            samples: 25
-            radius: 5
-            color: "#7f8c8d"
-        }
+//        layer.enabled: true
+//        layer.effect: InnerShadow {
+//            horizontalOffset: -0.3
+//            samples: 25
+//            radius: 5
+//            color: "#7f8c8d"
+//        }
     }
 
-
-
-
-    Header{
-        id: header
-        visible: false
-    }
 }

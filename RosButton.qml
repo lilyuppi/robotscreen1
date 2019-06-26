@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 Rectangle{
-    width: textButton.width + img.width + 30
+    width: textButton.width + img.width + 40
     radius: height/2
     color: "#03A9F4"
     property var img_src: "name"
